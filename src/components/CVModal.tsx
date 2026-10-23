@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Download, FileText, CheckCircle2, GraduationCap, Award, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useDialog } from '../hooks/useDialog';
@@ -90,9 +91,11 @@ PROYECTOS DESTACADOS:
     URL.revokeObjectURL(url);
   };
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#171B4B]/40 dark:bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0B0E21]/70 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
       role="presentation"
     >
@@ -119,7 +122,7 @@ PROYECTOS DESTACADOS:
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl bg-[#F0F1FF] dark:bg-[#1E2552] text-[#4F5D91] dark:text-[#AAB5DE] hover:text-[#171B4B] dark:hover:text-white transition-colors cursor-pointer"
+            className="p-2.5 rounded-xl bg-[#F0F1FF] dark:bg-[#1E2552] text-[#4F5D91] dark:text-[#AAB5DE] hover:text-[#171B4B] dark:hover:text-white hover:bg-[#E4E9FF] dark:hover:bg-[#273063] transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[#555DD6]"
             aria-label={t.cvModal.close}
           >
             <X className="w-5 h-5" />
@@ -235,6 +238,7 @@ PROYECTOS DESTACADOS:
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -25,12 +25,18 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveSection('contacto');
+        return;
+      }
+
       const sections = ['inicio', 'sobre-mi', 'proyectos', 'tech-stack', 'credenciales', 'contacto'];
       const scrollPos = window.scrollY + 140;
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
-          const top = el.offsetTop;
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
             setActiveSection(section);
@@ -44,6 +50,17 @@ export const Navbar: React.FC = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
+
+  // Close mobile menu on resize to desktop breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const navLinks = [
     { name: t.nav.home, id: 'inicio' },
@@ -69,8 +86,8 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#F0F1FF]/90 dark:bg-[#0B0E21]/90 backdrop-blur-md border-b border-[#DCE4FB] dark:border-[#273063] py-3.5 shadow-sm'
-            : 'bg-transparent py-5 sm:py-6'
+            ? 'bg-[#F0F1FF]/90 dark:bg-[#0B0E21]/90 backdrop-blur-md border-b border-[#DCE4FB] dark:border-[#273063] py-3 shadow-sm'
+            : 'bg-transparent py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,10 +115,10 @@ export const Navbar: React.FC = () => {
               </div>
             </Link>
 
-            {/* Center: Desktop Nav Links with Animated Underlines */}
+            {/* Center: Desktop Nav Links with Clean Active Indicator */}
             <nav 
               aria-label={t.a11y.mainNav}
-              className="hidden md:flex items-center gap-1 bg-white/80 dark:bg-[#161B3D]/80 border border-[#DCE4FB] dark:border-[#273063] px-4 py-1.5 rounded-full shadow-xs backdrop-blur-md"
+              className="hidden lg:flex items-center gap-1 bg-white/85 dark:bg-[#161B3D]/85 border border-[#DCE4FB] dark:border-[#273063] p-1.5 rounded-full shadow-xs backdrop-blur-md"
             >
               {navLinks.map((link) => {
                 const isActive = isHome && activeSection === link.id;
@@ -109,15 +126,15 @@ export const Navbar: React.FC = () => {
                   <a
                     key={link.id}
                     href={getHref(link.id)}
-                    className={`relative px-3.5 py-1.5 text-xs font-medium transition-colors rounded-full group ${
+                    className={`relative px-3.5 py-1.5 text-xs font-medium transition-all rounded-full group ${
                       isActive
-                        ? 'text-[#555DD6] dark:text-[#9BAFF5] font-semibold'
+                        ? 'text-[#555DD6] dark:text-[#9BAFF5] font-semibold bg-[#E4E9FF]/70 dark:bg-[#1E2552]/80 shadow-2xs'
                         : 'text-[#4F5D91] dark:text-[#AAB5DE] hover:text-[#171B4B] dark:hover:text-[#F8FAFF] hover:bg-[#E4E9FF]/50 dark:hover:bg-[#1E2552]/50'
                     }`}
                   >
                     {link.name}
                     <span 
-                      className={`absolute bottom-0 left-3 right-3 h-[2px] bg-[#555DD6] dark:bg-[#8198EF] rounded-full transition-all duration-300 ${
+                      className={`absolute bottom-0.5 left-3.5 right-3.5 h-[2px] bg-[#555DD6] dark:bg-[#8198EF] rounded-full transition-all duration-300 ${
                         isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-60 group-hover:scale-x-75'
                       }`} 
                     />
@@ -126,7 +143,7 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right: Controls (Theme Toggle, ES/EN selector, Primary Contact Button) */}
+            {/* Right: Controls (Theme Toggle, ES/EN selector, Primary Contact Button) for lg+ screens */}
             <div className="hidden lg:flex items-center gap-2.5">
               {/* Theme Toggle Button */}
               <button
@@ -181,8 +198,8 @@ export const Navbar: React.FC = () => {
               </a>
             </div>
 
-            {/* Mobile Menu Controls */}
-            <div className="flex items-center gap-2 md:hidden">
+            {/* Mobile/Tablet Controls (< lg) */}
+            <div className="flex lg:hidden items-center gap-2">
               <button
                 id="mobile-theme-toggle"
                 type="button"
@@ -217,35 +234,44 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Dropdown Menu with Escape, Focus Trap & Accessible Controls */}
+          {/* Mobile Dropdown Menu with Backdrop & Accessible Controls */}
           {mobileMenuOpen && (
-            <div
-              id="mobile-nav-menu"
-              ref={mobileMenuRef}
-              className="md:hidden mt-3 p-4 rounded-2xl bg-white/95 dark:bg-[#161B3D]/95 border border-[#DCE4FB] dark:border-[#273063] shadow-lg backdrop-blur-md animate-in fade-in slide-in-from-top-2"
-            >
-              <nav aria-label={t.a11y.mainNav} className="flex flex-col gap-1.5">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.id}
-                    href={getHref(link.id)}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-3.5 py-2 text-sm font-medium text-[#4F5D91] dark:text-[#AAB5DE] hover:text-[#555DD6] dark:hover:text-[#9BAFF5] hover:bg-[#E4E9FF]/60 dark:hover:bg-[#1E2552]/60 rounded-xl transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <div className="pt-2 border-t border-[#DCE4FB] dark:border-[#273063] mt-1">
-                  <a
-                    href={getHref('contacto')}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="btn-lavender-primary flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold"
-                  >
-                    <span>{t.nav.getInTouch}</span>
-                  </a>
-                </div>
-              </nav>
-            </div>
+            <>
+              {/* Dimmed backdrop to close on outside click */}
+              <div
+                className="fixed inset-0 z-40 bg-black/40 dark:bg-black/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-hidden="true"
+              />
+
+              <div
+                id="mobile-nav-menu"
+                ref={mobileMenuRef}
+                className="relative z-50 lg:hidden mt-3 p-4 rounded-2xl bg-white/95 dark:bg-[#161B3D]/95 border border-[#DCE4FB] dark:border-[#273063] shadow-xl backdrop-blur-md animate-in fade-in slide-in-from-top-2"
+              >
+                <nav aria-label={t.a11y.mainNav} className="flex flex-col gap-1.5">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.id}
+                      href={getHref(link.id)}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-3.5 py-2.5 text-sm font-medium text-[#4F5D91] dark:text-[#AAB5DE] hover:text-[#555DD6] dark:hover:text-[#9BAFF5] hover:bg-[#E4E9FF]/60 dark:hover:bg-[#1E2552]/60 rounded-xl transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                  <div className="pt-2 border-t border-[#DCE4FB] dark:border-[#273063] mt-1">
+                    <a
+                      href={getHref('contacto')}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="btn-lavender-primary flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold"
+                    >
+                      <span>{t.nav.getInTouch}</span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </>
           )}
         </div>
       </header>
