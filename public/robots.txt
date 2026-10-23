@@ -1,0 +1,7 @@
+# Robots.txt for Lourdes Escobar Portfolio
+# Requirements §13: uses the production URL
+
+User-agent: *
+Allow: /
+
+Sitemap: https://lourdes-escobar.vercel.app/sitemap.xml
