@@ -1,6 +1,19 @@
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Download, FileText, CheckCircle2, GraduationCap, Award, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
+import { 
+  X, 
+  Download, 
+  FileText, 
+  CheckCircle2, 
+  GraduationCap, 
+  Award, 
+  MapPin, 
+  Mail, 
+  Phone, 
+  ExternalLink,
+  Briefcase,
+  Globe
+} from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useDialog } from '../hooks/useDialog';
 import { site } from '../data/site';
@@ -21,63 +34,77 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
   const handleDownload = () => {
     const isEn = lang === 'en';
     const cvText = isEn
-      ? `LOURDES ESCOBAR
-Data Analysis & Software Development
-${site.location} | ${site.email} | ${site.phoneDisplay}
-GitHub: ${site.social.github}
+      ? `LOURDES ALEJANDRA ESCOBAR MARTÍNEZ
+Santa Ana, El Salvador | ${site.phoneDisplay} | ${site.email}
 LinkedIn: ${site.social.linkedin}
+GitHub: ${site.social.github}
+CuencaOS: https://cuencaos.vercel.app
 
-PROFESSIONAL SUMMARY:
-Hybrid profile integrating Software Engineering (Python, SQL, Modern Web), Accounting & Financial Analysis (Cost Analysis, Inventory Control, Budgeting, Advanced Excel), and Technical Leadership (Co-founder of WUJU, StartupSTEM 2026 Finalist).
+PROFESSIONAL SUMMARY
+Bilingual (Spanish and English) Software Development Engineering student with a technical background in accounting and experience in research and web development. Former researcher at WUJU and developer of CuencaOS — finalist at StartupSTEM 2026. Known for combining programming logic and databases (Python, SQL) with accounting numerical acumen (costs, inventory, advanced Excel).
 
-EDUCATION:
-- B.S. in Software Development Engineering — Universidad Católica de El Salvador (UNICAES, in progress)
-- Technical High School Degree in Accounting — Complejo Educativo Católico Juan XXIII
+PROJECTS & EXPERIENCE
+• WUJU (wuju.dev) — Researcher (Mar 2026 – Sep 2026). Research, technology, and innovation from El Salvador.
+• CuencaOS — Researcher & Web Developer (Jun 2026 – Present). Researched and developed the territorial and water monitoring web platform (cuencaos.vercel.app) in El Salvador and Central America ("Monitor · Analyze · Protect"). Finalist at StartupSTEM 2026.
+  - Research to define site contents; Spanish-first development with Astro, deployed on Vercel, with sections for People, Data, Territory, and Solutions.
+• Food Sales Team Leader — Directed the team and managed operational accounting, cost management, inventory, and budgeting.
 
-CERTIFICATIONS & ACHIEVEMENTS:
-- StartupSTEM 2026 Finalist — CuencaOS Project
-- IT Specialist: Python Programming — Official Certification
-- Digital Marketing Certification — Google Activate
-- English Extension Program (B2+) — Escuela Interamericana
+COMPETITIONS & ACTIVITIES
+• StartupSTEM 2026 — Finalist with the CuencaOS project.
+• Cursor Buildathon (July 2026) — Participant in the 24-hour coding marathon.
 
-TECHNICAL SKILLS:
-- Languages: Python, SQL, C#, JavaScript, TypeScript
-- Frameworks & Tools: React, Astro, Node.js, Supabase, Firebase, Git, GitHub, Vercel, VS Code
-- Analytics & Business: Relational SQL Modeling, Advanced Excel, Cost Analysis, Inventory Control, Google Analytics
+SKILLS
+• Languages: C#, Python, JavaScript, TypeScript, SQL, HTML, CSS
+• Web Development: React, Astro, Node.js, APIs, databases (Supabase, Firebase)
+• Tools: Git, GitHub, VS Code, Cursor, Vercel, Notion, Trello, Canva, Google Analytics
+• Accounting: Accounting software, costs, inventory control, invoicing, budgeting, Advanced Excel
+• Soft Skills: Leadership, public speaking & pitching, presentations, research, technical writing, typing
+• Languages: Bilingual — Spanish (Native), English (B2+)
 
-FEATURED PROJECTS:
-1. CuencaOS: River basin monitoring and territorial data analysis platform in Central America. StartupSTEM 2026 Finalist. (Astro, TypeScript, Vercel).
-2. WUJU & 24h Cursor Buildathon: Technical coordination and 24-hour innovation coding marathon.
-3. Cost & Inventory Analytical Management: Operational cost control, inventory rotation, and budgeting model in real commercial operations.
+EDUCATION
+• Universidad Católica de El Salvador (UNICAES) — B.S. in Software Development Engineering (2025-2029, in progress)
+• Escuela Interamericana — English Extension Program (2022-2026, pending graduation)
+• Complejo Educativo Católico Juan XXIII — Technical High School Degree in Accounting (2022-2024)
+
+COURSES & CERTIFICATIONS
+• Information Technology Specialist — Python Programming (June – September 2023)
+• Google Activate — Digital Marketing (September – October 2024)
 `
-      : `LOURDES ESCOBAR
-Análisis de Datos & Desarrollo de Software
-${site.location} | ${site.email} | ${site.phoneDisplay}
-GitHub: ${site.social.github}
+      : `LOURDES ALEJANDRA ESCOBAR MARTÍNEZ
+Santa Ana, El Salvador | ${site.phoneDisplay} | ${site.email}
 LinkedIn: ${site.social.linkedin}
+GitHub: ${site.social.github}
+CuencaOS: https://cuencaos.vercel.app
 
-RESUMEN PROFESIONAL:
-Perfil enfocado en combinar Ingeniería de Software (Python, SQL, Desarrollo Web), Contabilidad y Finanzas (Costos, Inventarios, Presupuestos, Excel Avanzado) y Liderazgo Tecnológico (Cofundadora de WUJU, Finalista StartupSTEM 2026).
+PERFIL PROFESIONAL
+Estudiante bilingüe (español e inglés) de Ingeniería en Desarrollo de Software, con formación técnica en contaduría y experiencia en investigación y desarrollo web. Investigadora en WUJU y desarrolladora de CuencaOS —finalista en StartupSTEM 2026—. Me caracteriza combinar la lógica de programación y bases de datos (Python, SQL) con la visión numérica de la contaduría (costos, inventarios, Excel avanzado).
 
-FORMACIÓN ACADÉMICA:
-- Ingeniería en Desarrollo de Software — Universidad Católica de El Salvador (UNICAES, cursando)
-- Bachillerato Técnico Vocacional en Contaduría — Complejo Educativo Católico Juan XXIII
+PROYECTOS Y EXPERIENCIA
+• WUJU (wuju.dev) — Investigadora (mar 2026 – sep 2026). Investigación, tecnología e innovación desde El Salvador.
+• CuencaOS — Investigadora y Desarrolladora Web (jun 2026 – presente). Investigué y desarrollé la plataforma web (cuencaos.vercel.app) sobre agua y territorio en El Salvador y Centroamérica ("Monitorea · Analiza · Protege"). Finalista de StartupSTEM 2026.
+  - Investigación para definir el contenido del sitio; desarrollo en español con Astro, publicado en Vercel, con secciones de Personas, Datos, Territorio y Soluciones.
+• Líder de equipo de venta de productos alimenticios — Dirigí al equipo y me encargué de la parte contable y productiva del negocio.
 
-CERTIFICACIONES Y LOGROS:
-- Finalista StartupSTEM 2026 — Proyecto CuencaOS
-- Certificación IT Specialist: Programación en Python
-- Marketing Digital — Google Activate
-- Programa de Extensión en Idioma Inglés (B2+) — Escuela Interamericana
+COMPETENCIAS Y ACTIVIDADES
+• StartupSTEM 2026 — Finalista con el proyecto CuencaOS.
+• Buildathon de Cursor (julio 2026) — Participante en maratón de desarrollo de 24 horas.
 
-HABILIDADES TÉCNICAS:
-- Lenguajes: Python, SQL, C#, JavaScript, TypeScript
-- Frameworks & Herramientas: React, Astro, Node.js, Supabase, Firebase, Git, GitHub, Vercel, VS Code
-- Analítica & Negocios: Modelado Relacional SQL, Excel Avanzado, Análisis de Costos, Control de Inventarios, Google Analytics
+HABILIDADES
+• Lenguajes: C#, Python, JavaScript, TypeScript, SQL, HTML, CSS
+• Desarrollo web: React, Astro, Node.js, APIs, bases de datos (Supabase, Firebase)
+• Herramientas: Git, GitHub, VS Code, Cursor, Vercel, Notion, Trello, Canva, Google Analytics
+• Contabilidad: Programas contables, costos, inventarios, facturación, presupuestos, Excel avanzado
+• Habilidades blandas: Liderazgo, hablar en público y pitch, presentaciones, investigación, redacción, mecanografía
+• Idiomas: Bilingüe — Español (nativo), Inglés (B2+)
 
-PROYECTOS DESTACADOS:
-1. CuencaOS: Plataforma de monitoreo y análisis de datos hídricos y territoriales en CA. Finalista StartupSTEM 2026. (Astro, TypeScript, Vercel).
-2. WUJU & 24h Cursor Buildathon: Coordinación técnica y maratón de código de innovación tecnológica.
-3. Gestión Analítica y Control de Costos: Modelo de control de inventarios, presupuestos y costos en operaciones comerciales reales.
+EDUCACIÓN
+• Universidad Católica de El Salvador (UNICAES) — Ingeniería en Desarrollo de Software (2025-2029, cursando)
+• Escuela Interamericana — English Extension Program (2022-2026, pendiente de graduación)
+• Complejo Educativo Católico Juan XXIII — Bachillerato Técnico Vocacional, opción Contaduría (2022-2024)
+
+CURSOS Y CERTIFICACIONES
+• Information Technology Specialist — Programación en Python (junio – septiembre 2023)
+• Google Activate — Marketing Digital (septiembre – octubre 2024)
 `;
 
     const blob = new Blob([cvText], { type: 'text/plain;charset=utf-8' });
@@ -105,7 +132,7 @@ PROYECTOS DESTACADOS:
         aria-modal="true"
         aria-labelledby="cv-modal-title"
         tabIndex={-1}
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#161B3D] rounded-3xl p-6 sm:p-8 border border-[#DCE4FB] dark:border-[#273063] shadow-2xl text-[#171B4B] dark:text-[#F0F3FF] outline-none"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#161B3D] rounded-3xl p-6 sm:p-8 border border-[#DCE4FB] dark:border-[#273063] shadow-2xl text-[#171B4B] dark:text-[#F0F3FF] outline-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -131,19 +158,30 @@ PROYECTOS DESTACADOS:
 
         {/* Modal Body */}
         <div className="mt-5 space-y-6 text-sm">
-          {/* Quick Contact Ribbon */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-2xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063] text-xs font-mono text-[#4F5D91] dark:text-[#AAB5DE]">
+          {/* Quick Contact & Links Ribbon */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 rounded-2xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063] text-xs font-mono text-[#4F5D91] dark:text-[#AAB5DE]">
             <div className="flex items-center gap-1.5 truncate">
               <MapPin className="w-3.5 h-3.5 text-[#555DD6] dark:text-[#8198EF] shrink-0" />
-              <span>{site.location}</span>
+              <span className="truncate">{site.location}</span>
             </div>
             <div className="flex items-center gap-1.5 truncate">
               <Mail className="w-3.5 h-3.5 text-[#555DD6] dark:text-[#8198EF] shrink-0" />
               <span className="truncate">{site.email}</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 truncate">
               <Phone className="w-3.5 h-3.5 text-[#555DD6] dark:text-[#8198EF] shrink-0" />
               <span>{site.phoneDisplay}</span>
+            </div>
+            <div className="flex items-center gap-1.5 truncate">
+              <Globe className="w-3.5 h-3.5 text-[#555DD6] dark:text-[#8198EF] shrink-0" />
+              <a 
+                href="https://cuencaos.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline text-[#555DD6] dark:text-[#9BAFF5] truncate"
+              >
+                CuencaOS.vercel.app
+              </a>
             </div>
           </div>
 
@@ -152,13 +190,71 @@ PROYECTOS DESTACADOS:
             <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold">
               {t.cvModal.profileTitle}
             </h4>
-            <p className="text-xs sm:text-sm text-[#4F5D91] dark:text-[#AAB5DE] leading-relaxed bg-[#E4E9FF]/50 dark:bg-[#1E2552]/60 p-3.5 rounded-2xl border border-[#DCE4FB] dark:border-[#273063]">
+            <p className="text-xs sm:text-sm text-[#4F5D91] dark:text-[#AAB5DE] leading-relaxed bg-[#E4E9FF]/50 dark:bg-[#1E2552]/60 p-4 rounded-2xl border border-[#DCE4FB] dark:border-[#273063]">
               {t.cvModal.profileText}
             </p>
           </div>
 
-          {/* Education & Certifications */}
+          {/* Proyectos y Experiencia */}
+          <div className="space-y-2.5">
+            <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold flex items-center gap-1.5">
+              <Briefcase className="w-3.5 h-3.5" />
+              {t.cvModal.experienceTitle}
+            </h4>
+            <div className="space-y-2">
+              <div className="p-3.5 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                <div className="flex flex-wrap items-center justify-between gap-1">
+                  <span className="font-semibold text-xs sm:text-sm">
+                    CuencaOS — {lang === 'en' ? 'Researcher & Web Developer' : 'Investigadora y Desarrolladora Web'}
+                  </span>
+                  <span className="font-mono text-[11px] text-[#555DD6] dark:text-[#9BAFF5] px-2 py-0.5 rounded-md bg-[#E4E9FF] dark:bg-[#1E2552]">
+                    {lang === 'en' ? 'Jun 2026 – Present' : 'jun 2026 – presente'}
+                  </span>
+                </div>
+                <p className="text-xs text-[#4F5D91] dark:text-[#AAB5DE] mt-1 leading-relaxed">
+                  {lang === 'en'
+                    ? 'Researched and built the water and territorial monitoring web platform (cuencaos.vercel.app). Finalist at StartupSTEM 2026. Built with Astro, TypeScript, and deployed on Vercel.'
+                    : 'Investigué y desarrollé la plataforma web (cuencaos.vercel.app) sobre agua y territorio en El Salvador y Centroamérica ("Monitorea · Analiza · Protege"). Finalista de StartupSTEM 2026. Desarrollo con Astro, TypeScript y Vercel.'}
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                <div className="flex flex-wrap items-center justify-between gap-1">
+                  <span className="font-semibold text-xs sm:text-sm">
+                    WUJU (wuju.dev) — {lang === 'en' ? 'Researcher' : 'Investigadora'}
+                  </span>
+                  <span className="font-mono text-[11px] text-[#555DD6] dark:text-[#9BAFF5] px-2 py-0.5 rounded-md bg-[#E4E9FF] dark:bg-[#1E2552]">
+                    {lang === 'en' ? 'Mar 2026 – Sep 2026' : 'mar 2026 – sep 2026'}
+                  </span>
+                </div>
+                <p className="text-xs text-[#4F5D91] dark:text-[#AAB5DE] mt-1 leading-relaxed">
+                  {lang === 'en'
+                    ? 'Technology, innovation, and digital impact research from El Salvador. Participant in the 24-hour Cursor Buildathon coding sprint.'
+                    : 'Investigación, tecnología e innovación desde El Salvador. Participante en la maratón de desarrollo de 24 horas del Buildathon de Cursor.'}
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                <div className="flex flex-wrap items-center justify-between gap-1">
+                  <span className="font-semibold text-xs sm:text-sm">
+                    {lang === 'en' ? 'Food Products Sales Team Leader' : 'Líder de equipo de venta de productos alimenticios'}
+                  </span>
+                  <span className="font-mono text-[11px] text-[#8490B8] dark:text-[#8390BE] px-2 py-0.5 rounded-md bg-[#E4E9FF]/60 dark:bg-[#1E2552]">
+                    {lang === 'en' ? 'Commercial Operations' : 'Operación Comercial'}
+                  </span>
+                </div>
+                <p className="text-xs text-[#4F5D91] dark:text-[#AAB5DE] mt-1 leading-relaxed">
+                  {lang === 'en'
+                    ? 'Directed the team and led operational accounting, cost management, inventory rotation, and budgeting.'
+                    : 'Dirigí al equipo y me encargué de la parte contable, costos, inventarios, facturación y presupuestos del negocio.'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Education & Courses/Certifications Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Education */}
             <div className="space-y-2">
               <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold flex items-center gap-1.5">
                 <GraduationCap className="w-3.5 h-3.5" />
@@ -167,15 +263,20 @@ PROYECTOS DESTACADOS:
               <div className="space-y-2 text-xs">
                 <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
                   <div className="font-semibold">{lang === 'en' ? 'B.S. in Software Development Engineering' : 'Ingeniería en Desarrollo de Software'}</div>
-                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">{lang === 'en' ? 'UNICAES (In progress)' : 'UNICAES (Cursando)'}</div>
+                  <div className="text-[#555DD6] dark:text-[#8198EF] font-mono text-[11px]">UNICAES (2025-2029, {lang === 'en' ? 'in progress' : 'cursando'})</div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
-                  <div className="font-semibold">{lang === 'en' ? 'Technical High School Degree in Accounting' : 'Bachillerato Técnico en Contaduría'}</div>
-                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">CEC Juan XXIII</div>
+                  <div className="font-semibold">English Extension Program (B2+)</div>
+                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">Escuela Interamericana (2022-2026)</div>
+                </div>
+                <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                  <div className="font-semibold">{lang === 'en' ? 'Technical High School Degree in Accounting' : 'Bachillerato Técnico Vocacional en Contaduría'}</div>
+                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">Complejo Educativo Católico Juan XXIII (2022-2024)</div>
                 </div>
               </div>
             </div>
 
+            {/* Courses & Competitions */}
             <div className="space-y-2">
               <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold flex items-center gap-1.5">
                 <Award className="w-3.5 h-3.5" />
@@ -183,29 +284,57 @@ PROYECTOS DESTACADOS:
               </h4>
               <div className="space-y-2 text-xs">
                 <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
-                  <div className="font-semibold">IT Specialist: Python Programming</div>
-                  <div className="text-[#555DD6] dark:text-[#8198EF] font-mono text-[11px]">{lang === 'en' ? 'Official Certification' : 'Certificación Oficial'}</div>
+                  <div className="font-semibold">StartupSTEM 2026 — {lang === 'en' ? 'Finalist' : 'Finalista'}</div>
+                  <div className="text-[#555DD6] dark:text-[#8198EF] font-mono text-[11px]">{lang === 'en' ? 'CuencaOS Project' : 'Proyecto CuencaOS'}</div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
-                  <div className="font-semibold">{lang === 'en' ? 'StartupSTEM 2026 Finalist' : 'StartupSTEM 2026 Finalista'}</div>
-                  <div className="text-[#555DD6] dark:text-[#8198EF] font-mono text-[11px]">{lang === 'en' ? 'CuencaOS Project' : 'Proyecto CuencaOS'}</div>
+                  <div className="font-semibold">IT Specialist: Python Programming</div>
+                  <div className="text-[#555DD6] dark:text-[#8198EF] font-mono text-[11px]">{lang === 'en' ? 'Official Certification (Jun – Sep 2023)' : 'Certificación Oficial (jun – sep 2023)'}</div>
+                </div>
+                <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                  <div className="font-semibold">Google Activate: Marketing Digital</div>
+                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">{lang === 'en' ? 'Certification (Sep – Oct 2024)' : 'Certificación (sep – oct 2024)'}</div>
+                </div>
+                <div className="p-3 rounded-xl bg-[#F0F1FF]/60 dark:bg-[#121636] border border-[#DCE4FB] dark:border-[#273063]">
+                  <div className="font-semibold">Buildathon de Cursor (24h)</div>
+                  <div className="text-[#8490B8] dark:text-[#8390BE] font-mono text-[11px]">{lang === 'en' ? 'Participant (July 2026)' : 'Participante en maratón de 24h (julio 2026)'}</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Technical Toolkit */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold mb-2 flex items-center gap-1.5">
+          {/* Technical Toolkit & Competencies */}
+          <div className="space-y-3">
+            <h4 className="text-xs uppercase tracking-wider font-mono text-[#555DD6] dark:text-[#8198EF] font-semibold flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5" />
               {t.cvModal.skillsTitle}
             </h4>
-            <div className="flex flex-wrap gap-1.5 font-mono text-[11px]">
-              {['Python', 'SQL', 'TypeScript', 'React', 'Astro', 'Advanced Excel', 'Cost Accounting', 'Inventory Rotation', 'Budgeting', 'PostgreSQL', 'Supabase', 'Git/GitHub'].map((skill) => (
-                <span key={skill} className="px-2.5 py-1 rounded-lg bg-[#E4E9FF]/70 dark:bg-[#1E2552] text-[#4F5D91] dark:text-[#AAB5DE] border border-[#DCE4FB] dark:border-[#2E3976]">
-                  {skill}
-                </span>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-3 rounded-xl bg-[#F0F1FF]/50 dark:bg-[#121636]/60 border border-[#DCE4FB] dark:border-[#273063]">
+                <div className="font-mono text-[11px] font-semibold text-[#555DD6] dark:text-[#9BAFF5] mb-1.5">
+                  {lang === 'en' ? 'Languages & Web Development' : 'Lenguajes & Desarrollo Web'}
+                </div>
+                <div className="flex flex-wrap gap-1 font-mono text-[11px]">
+                  {['Python', 'SQL', 'C#', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'React', 'Astro', 'Node.js', 'Supabase', 'Firebase'].map((skill) => (
+                    <span key={skill} className="px-2 py-0.5 rounded-md bg-[#E4E9FF]/70 dark:bg-[#1E2552] text-[#4F5D91] dark:text-[#C5D0F5] border border-[#DCE4FB] dark:border-[#2E3976]">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-[#F0F1FF]/50 dark:bg-[#121636]/60 border border-[#DCE4FB] dark:border-[#273063]">
+                <div className="font-mono text-[11px] font-semibold text-[#555DD6] dark:text-[#9BAFF5] mb-1.5">
+                  {lang === 'en' ? 'Accounting, Tools & Soft Skills' : 'Contabilidad, Herramientas & Habilidades'}
+                </div>
+                <div className="flex flex-wrap gap-1 font-mono text-[11px]">
+                  {['Excel Avanzado', 'Costos & Inventarios', 'Facturación & Presupuestos', 'Git/GitHub', 'Cursor', 'Vercel', 'Google Analytics', 'Notion/Canva', 'Bilingüe (ES / EN B2+)', 'Liderazgo & Pitch'].map((skill) => (
+                    <span key={skill} className="px-2 py-0.5 rounded-md bg-[#E4E9FF]/70 dark:bg-[#1E2552] text-[#4F5D91] dark:text-[#C5D0F5] border border-[#DCE4FB] dark:border-[#2E3976]">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@
 ## 3. Pilares (3 Bento Cards)
 1. **Datos & Negocios** (`Database`) | Tag: `SQL · EXCEL AVANZADO` | Control de costos, inventarios, presupuestos y modelado de bases de datos relacionales.
 2. **Desarrollo & Código** (`Code2`) | Tag: `PYTHON · ASTRO · TS` | Plataformas web rápidas, estructuradas y conectadas a bases de datos en la nube.
-3. **Investigación & Liderazgo** (`Cpu`) | Tag: `WUJU · STARTUPSTEM` | Cofundadora de WUJU y finalista en StartupSTEM 2026 liderando equipos técnicos y pitch.
+3. **Investigación & Liderazgo** (`Cpu`) | Tag: `WUJU · STARTUPSTEM` | Investigadora en WUJU y finalista en StartupSTEM 2026 liderando proyectos técnicos y pitch.
 
 ## 4. Tech Stack
 - **Row 1:** `https://skillicons.dev/icons?i=cs,py,js,ts`
@@ -36,8 +36,8 @@
    - **Links:** `https://cuencaos.vercel.app` (`ExternalLink`), `https://github.com/mrtzlouu` (`Github`)
 
 2. **WUJU & 24h Cursor Buildathon**
-   - **Badge (`Sparkles`):** `Cofundadora & Investigadora`
-   - **Desc:** Investigación, tecnología e innovación desde El Salvador; coordinación técnica y maratón de código de 24h.
+   - **Badge (`Sparkles`):** `Investigadora (mar – sep 2026)`
+   - **Desc:** Investigación, tecnología e innovación desde El Salvador (mar – sep 2026); participante en maratón de código de 24h.
    - **Tags:** `Coordinación Técnica`, `Investigación`, `Cursor`, `Desarrollo Web`
    - **Link:** `https://wuju.dev` (`ExternalLink`)
 

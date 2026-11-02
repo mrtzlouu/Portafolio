@@ -37,9 +37,9 @@ export const Pilares: React.FC = () => {
       title: 'Investigación & Liderazgo',
       tag: 'WUJU · STARTUPSTEM',
       tagColor: 'text-[#6366F1] bg-[#6366F1]/10 border-[#6366F1]/30',
-      description: 'Cofundadora de WUJU y finalista en StartupSTEM 2026 liderando equipos técnicos y pitch.',
+      description: 'Investigadora en WUJU y finalista en StartupSTEM 2026 liderando proyectos técnicos y pitch.',
       microWidgets: [
-        { label: 'Hackathon', value: '24h Cursor Lead' },
+        { label: 'Hackathon', value: '24h Cursor Sprint' },
         { label: 'Pitch STEM', value: 'Finalista 2026' },
         { label: 'Coordinación', value: 'Metodología Ágil' },
       ],

@@ -102,6 +102,7 @@ export interface Translations {
     subtitle: string;
     profileTitle: string;
     profileText: string;
+    experienceTitle: string;
     educationTitle: string;
     certTitle: string;
     skillsTitle: string;
@@ -186,7 +187,7 @@ export const translations: Record<Language, Translations> = {
       bioParagraph1:
         'Combino la formación en Ingeniería en Desarrollo de Software en UNICAES con una sólida base técnica en contaduría y finanzas. Esta visión dual me permite diseñar software robusto entendiendo con precisión la rentabilidad, los costos operativos y el impacto en el negocio.',
       bioParagraph2:
-        'Como cofundadora de WUJU y finalista en StartupSTEM 2026 con el proyecto CuencaOS, cuento con experiencia coordinando equipos técnicos, diseñando soluciones basadas en datos y comunicando proyectos ante paneles evaluadores.',
+        'Como investigadora en WUJU y desarrolladora de CuencaOS —finalista en StartupSTEM 2026—, cuento con experiencia en investigación tecnológica, diseño de soluciones basadas en datos y comunicación de proyectos ante paneles evaluadores.',
       photoAlt: 'Retrato profesional de Lourdes Escobar',
       available: 'Disponible',
       cards: {
@@ -198,7 +199,7 @@ export const translations: Record<Language, Translations> = {
           'Bachillerato técnico en Contaduría. Experiencia práctica en control de costos, inventarios, flujos presupuestarios y Excel avanzado.',
         leadTitle: 'Liderazgo & Pitch',
         leadDesc:
-          'Cofundadora de WUJU y finalista en StartupSTEM 2026. Capacidad para articular soluciones complejas ante paneles técnicos y directivos.',
+          'Investigadora en WUJU y finalista en StartupSTEM 2026. Capacidad para articular soluciones complejas ante paneles técnicos y directivos.',
       },
     },
     projects: {
@@ -249,12 +250,13 @@ export const translations: Record<Language, Translations> = {
     cvModal: {
       title: 'Currículum Vitae',
       subtitle: 'Lourdes Alejandra Escobar Martínez',
-      profileTitle: 'Perfil Estratégico',
+      profileTitle: 'Perfil Profesional',
       profileText:
-        'Desarrollo de software y análisis de información combinando programación (Python, SQL, Web moderna) con contabilidad financiera (Costos, Inventarios, Presupuestos, Excel Avanzado) y liderazgo técnico.',
+        'Estudiante bilingüe (español e inglés) de Ingeniería en Desarrollo de Software, con formación técnica en contaduría y experiencia en investigación y desarrollo web. Investigadora en WUJU y desarrolladora de CuencaOS —finalista en StartupSTEM 2026—. Me caracteriza combinar la lógica de programación y bases de datos (Python, SQL) con la visión numérica de la contaduría (costos, inventarios, Excel avanzado).',
+      experienceTitle: 'Proyectos & Experiencia',
       educationTitle: 'Educación',
-      certTitle: 'Certificaciones Clave',
-      skillsTitle: 'Competencias Principales',
+      certTitle: 'Cursos & Certificaciones',
+      skillsTitle: 'Habilidades & Tecnologías',
       downloadBtn: 'Descargar CV (.txt)',
       status: 'Disponible para pasantías y proyectos',
       close: 'Cerrar',
@@ -334,7 +336,7 @@ export const translations: Record<Language, Translations> = {
       bioParagraph1:
         'I combine Software Engineering training at UNICAES with a strong technical background in accounting and finance. This dual perspective enables me to build robust software while deeply understanding profitability, operating costs, and business impact.',
       bioParagraph2:
-        'As co-founder of WUJU and finalist at StartupSTEM 2026 with the CuencaOS project, I have experience coordinating technical teams, designing data-driven solutions, and presenting projects to evaluation panels.',
+        'As a former researcher at WUJU and developer of CuencaOS — finalist at StartupSTEM 2026 —, I have experience conducting technological research, designing data-driven solutions, and presenting projects to evaluation panels.',
       photoAlt: 'Professional portrait of Lourdes Escobar',
       available: 'Available',
       cards: {
@@ -346,7 +348,7 @@ export const translations: Record<Language, Translations> = {
           'Technical High School degree in Accounting. Practical experience in cost control, inventory rotation, budgeting, and Advanced Excel.',
         leadTitle: 'Leadership & Pitch',
         leadDesc:
-          'Co-founder of WUJU and finalist at StartupSTEM 2026. Proven ability to articulate complex technical solutions to executive and engineering panels.',
+          'Former researcher at WUJU and finalist at StartupSTEM 2026. Proven ability to articulate complex technical solutions to executive and engineering panels.',
       },
     },
     projects: {
@@ -397,12 +399,13 @@ export const translations: Record<Language, Translations> = {
     cvModal: {
       title: 'Curriculum Vitae',
       subtitle: 'Lourdes Alejandra Escobar Martínez',
-      profileTitle: 'Strategic Profile',
+      profileTitle: 'Professional Profile',
       profileText:
-        'Software development and data analysis integrating engineering (Python, SQL, Modern Web) with financial accounting (Costs, Inventories, Budgets, Advanced Excel) and demonstrated technical leadership.',
+        'Bilingual (Spanish and English) Software Development Engineering student with a technical background in accounting and experience in research and web development. Former researcher at WUJU and developer of CuencaOS — finalist at StartupSTEM 2026. Known for combining programming logic and databases (Python, SQL) with accounting numerical acumen (costs, inventory, advanced Excel).',
+      experienceTitle: 'Projects & Experience',
       educationTitle: 'Education',
-      certTitle: 'Key Certifications',
-      skillsTitle: 'Core Competencies',
+      certTitle: 'Courses & Certifications',
+      skillsTitle: 'Skills & Technologies',
       downloadBtn: 'Download CV (.txt)',
       status: 'Available for internships and projects',
       close: 'Close',

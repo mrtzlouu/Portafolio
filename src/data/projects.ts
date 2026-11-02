@@ -54,14 +54,14 @@ export const projects: Project[] = [
     title: { es: 'WUJU & 24h Cursor Buildathon', en: 'WUJU & 24h Cursor Buildathon' },
     category: { es: 'Innovación & Coordinación Técnica', en: 'Innovation & Tech Coordination' },
     summary: {
-      es: 'Investigación, tecnología e innovación desde El Salvador; coordinación técnica y maratón de código de 24h.',
-      en: 'Technology research and innovation from El Salvador; technical coordination and 24-hour coding sprint.',
+      es: 'Investigación, tecnología e innovación desde El Salvador (mar – sep 2026); participación en maratón de código de 24h.',
+      en: 'Technology research and innovation from El Salvador (Mar – Sep 2026); 24-hour coding sprint participant.',
     },
-    badge: { es: 'Cofundadora & Investigadora', en: 'Co-Founder & Researcher' },
+    badge: { es: 'Investigadora (mar – sep 2026)', en: 'Researcher (Mar – Sep 2026)' },
     badgeIcon: 'Sparkles',
     role: {
-      es: 'Cofundadora e investigadora; coordinación técnica del maratón de código de 24 horas.',
-      en: 'Co-founder and researcher; technical coordination of the 24-hour coding marathon.',
+      es: 'Investigadora (marzo 2026 – septiembre 2026) en tecnología e innovación; participante en el maratón de desarrollo de 24 horas.',
+      en: 'Researcher (March 2026 – September 2026) in technology and innovation; participant in the 24-hour coding marathon.',
     },
     context: {
       es: 'WUJU es una iniciativa de investigación, tecnología e innovación desde El Salvador. Incluye el 24h Cursor Buildathon, un maratón de código de 24 horas.',
